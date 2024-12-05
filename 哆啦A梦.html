@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>多啦 A 梦</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+ .background-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url(./多啦a梦.jpg);
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+    }
+
+    h1 {
+      color: rgb(77, 78, 155);
+      font-size: 30px;
+      text-align: center;
+    }
+
+    h2 {
+      color: rgb(19, 101, 252);
+      font-size: 27px;
+      text-align: center;
+      margin-top: 360px;
+    }
+
+    audio {
+      position: relative;
+      right: 0px;
+      bottom: 265px;
+    }
+
+    img {
+      width: 300px;
+      height: 300px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-20px);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    /* 满天星样式 */
+ .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background-color: white;
+      border-radius: 50%;
+    }
+
+    @keyframes moveStar {
+      0% {
+        transform: translate(0, 0);
+      }
+      100% {
+        transform: translate(calc(random() * 100vw), calc(random() * 100vh));
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1 style="text-align: center;"> 赵欣姐姐！！！</h1>
+
+  <img src="./2.jpg" alt="浪漫图片">
+
+  <audio controls autoplay>
+    <source src="./你笑起来真好看.mp3" type="audio/mpeg">
+  </audio>
+
+  <img src="./2.jpg" alt="浪漫图片">
+
+  <!-- 生成多个满天星 -->
+  <div id="stars"></div>
+
+  <div class="container">
+    <div class="background-image"></div>
+    <div class="message-box">
+      <h2 style="text-align: center;">我是一个不太懂得表达的人。但是我知道如果，我不把心里的话说出来，我会感觉不安很难受睡也睡不好一整天没心情。也许有时候我做事情的方式你不能接受，有时候我也不知道就会很烦！所以这个事情能不能翻篇了！！！我都卑微成这样了！！！</h2>
+    </div>
+  </div>
+
+  <script>
+    // 生成满天星并添加动画
+    for (let i = 0; i < 500; i++) {
+      let star = document.createElement('div');
+      star.className ='star';
+      star.style.left = Math.random() * window.innerWidth + 'px';
+      star.style.top = Math.random() * window.innerHeight + 'px';
+
+      star.style.animation = `moveStar ${Math.random() * 5 + 3}s infinite linear`;
+
+      document.getElementById('stars').appendChild(star);
+    }
+  </script>
+</body>
+
+</html>
